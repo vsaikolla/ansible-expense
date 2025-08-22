@@ -2,7 +2,7 @@
   hosts: db
   become: yes
   vars:
-    login_url: db.sainath.online
+    login_host: db.sainath.online
   vars_prompt:
   - name: mysql_root_password
     prompt: "Please enter MYSQL root password"
@@ -30,7 +30,7 @@
     community.mysql.mysql_info:
       login_user: root
       login_password: "{{mysql_root_password}}"
-      login_db: {login_url}
+      login_db: {login_host}
       filter: version
     ignore_errors: yes
     register: my_sql_output
