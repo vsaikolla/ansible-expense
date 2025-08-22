@@ -16,7 +16,7 @@
       enabled: yes
 
   - name: collect info
-    community.mysql-mysql.info:
+    community.mysql.mysql_info:
       login_user: root
       login_password: ExpenseApp@1
       login_url: {login_url}
