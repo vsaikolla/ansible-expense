@@ -3,6 +3,10 @@
   become: yes
   vars:
     login_url: db.sainath.online
+  vars_prompt:
+  - name: mysql_root_password
+    prompt: "Please enter MYSQL root password:"
+    private: no
   tasks:
   - name: install mysql
     ansible.builtin.dnf:
@@ -25,7 +29,7 @@
   - name: collect info
     community.mysql.mysql_info:
       login_user: root
-      login_password: ExpenseApp@1
+      login_password: "{{mysql_root_password}}"
       login_db: {login_url}
       filter: version
     ignore_errors: yes
@@ -34,3 +38,7 @@
   - name: print output
     ansible.builtin.debug:
       msg: "{{my_sql_output}}"
+
+  - name: setup root password 
+    ansible.builtin.command: "mysql_secure_installation --set-root-pass {{mysql_root_password}}"
+    when: my_sql_output is true
