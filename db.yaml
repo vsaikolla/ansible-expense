@@ -2,9 +2,7 @@
   hosts: db
   become: yes
   vars:
-    login_password: ExpenseApp@1
     login_url: db.sainath.online
-    login_user: root
   tasks:
   - name: install mysql
     ansible.builtin.dnf:
@@ -19,8 +17,8 @@
 
   - name: collect all info from the mysql
     community.mysql-mysql.info:
-      login_user: {{login_user}}
-      login_password: {{login_password}}
+      login_user: root
+      login_password: ExpenseApp@1
       login_url: {{login_url}}
       filter: version
     ignore_errors: yes
