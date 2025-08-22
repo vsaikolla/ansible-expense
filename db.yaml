@@ -24,7 +24,7 @@
       name:
       - PyMySQL
       - cryptography
-      executable: pip3.9.18
+      executable: pip3.9
 
   - name: collect info
     community.mysql.mysql_info:
@@ -41,4 +41,4 @@
 
   - name: setup root password 
     ansible.builtin.command: "mysql_secure_installation --set-root-pass {{mysql_root_password}}"
-    when: my_sql_output is true
+    when: my_sql_output.failed is true 
