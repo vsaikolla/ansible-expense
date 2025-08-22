@@ -19,7 +19,7 @@
     community.mysql-mysql.info:
       login_user: root
       login_password: ExpenseApp@1
-      login_url: {{login_url}}
+      login_url: {login_url}
       filter: version
     ignore_errors: yes
     register: my_sql_output
