@@ -15,7 +15,7 @@
       state: started
       enabled: yes
 
-  - name: collect all info from the mysql
+  - name: collect info
     community.mysql-mysql.info:
       login_user: root
       login_password: ExpenseApp@1
