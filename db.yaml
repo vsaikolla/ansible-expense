@@ -15,6 +15,11 @@
       state: started
       enabled: yes
 
+  - name: install python dependencies
+    ansible.builtin.pip:
+      name: PyMySQL
+      executable: pip3.9
+
   - name: collect info
     community.mysql.mysql_info:
       login_user: root
