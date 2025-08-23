@@ -20,7 +20,7 @@
       path: /usr/share/nginx/html/
       state: directory
   - name: download and archieve frontend code
-    ansible.builtin.unarcheive:
+    ansible.builtin.unarchive:
       src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
       dest: /usr/share/nginx/html
       remote_src: yes
