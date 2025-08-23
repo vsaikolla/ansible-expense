@@ -1,4 +1,4 @@
-- name: backend
+- name: configure backend
   hosts: backend
   become: yes
   vars:
