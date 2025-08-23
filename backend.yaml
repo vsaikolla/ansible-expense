@@ -50,7 +50,7 @@
       dest: /etc/systemd/system/backend.service
 
   - name: import data into mysql
-    community.mysql.mysql_info:
+    community.mysql.mysql_db:
       login_user: root
       login_password: "{{login_password}}"
       login_host: "{{login_host}}"
